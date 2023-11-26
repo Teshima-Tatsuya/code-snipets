@@ -9,23 +9,28 @@ int binarySearch(std::vector<int> nums, int target){
         return -1;
     }
 
-    int index = nums.size() - 1; // 0-indexed
+    int low = 0;
+    int high = nums.size() - 1;
+    int index = low + (high - low) / 2;
 
     while (true) {
-        if (nums[index] < target) {
-            index = index / 2;
-            if (index == 0) {
-                break;
-            }
-        } else if (target < nums[target]) {
-            index = (index + nums.size()) / 2;
-            if (nums.size() < index) {
-                break;
-            }
-        } else {
-            break;
+        if (low > high) {
+            return -1;
+        }
+        if (nums[index] < target)
+        {
+            low = index + 1;
+            index = low + (high - low) / 2;
+        }
+        else if (target < nums[index])
+        {
+            high = index - 1;
+            index = low + (high - low) / 2;
+        }
+        else
+        {
+            return index;
         }
     }
 
-    return index;
 }
