@@ -9,7 +9,6 @@ int binarySearch(std::vector<int> nums, int target){
 
     int low = -1; // index 0 が正解を考慮
     int high = nums.size(); // 最大値より大きい場合を考慮
-    int index = low + (high - low) / 2;
     int mid;
 
     while (high - low > 1) {
