@@ -2,14 +2,18 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "clang++ build active file",
+            "label": "cpp build",
             "type": "shell",
             "command": "/usr/bin/clang++",
             "args": [
                 "-g",
-                "${file}",
+                "${workspaceFolder}/cpp/snipets.cpp",
+                "${workspaceFolder}/cpp/snipetsTest.cpp",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${workspaceFolder}/cpp/snipetsTest",
+                "-std=c++14",
+                "-lgtest_main",
+                "-lgtest"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
